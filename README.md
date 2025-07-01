@@ -392,89 +392,6 @@
             opacity: 0.7;
         }
         
-        .teaching-game {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .cauldron {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(145deg, #3a2e1a, #2d2415);
-            border-radius: 50% 50% 30% 30%;
-            position: relative;
-            border: 3px solid #d4af37;
-            overflow: hidden;
-        }
-        
-        .flame-indicator {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, #ff6b6b, #ffd700);
-            border-radius: 50% 50% 0 0;
-            transition: height 0.5s ease;
-        }
-        
-        .instruction {
-            font-size: 1.2rem;
-            color: #ffd700;
-            margin: 15px 0;
-            text-align: center;
-            min-height: 60px;
-        }
-        
-        .status-bar {
-            width: 100%;
-            height: 15px;
-            background: #2c313a;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #3a3f45;
-            margin-top: 10px;
-        }
-        
-        .stability-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #ffd700, #4caf50);
-            width: 70%;
-            transition: width 0.5s ease;
-        }
-        
-        .stability-labels {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            color: #b8b0a0;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        .teaching-controls {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .teaching-btn {
-            padding: 12px 20px;
-            border-radius: 8px;
-            background: linear-gradient(145deg, #2c313a, #232830);
-            border: 1px solid #3a3f45;
-            color: #b8b0a0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .teaching-btn:hover {
-            background: linear-gradient(145deg, #3a2e1a, #2d2415);
-            border-color: #d4af37;
-            color: #ffd700;
-        }
-        
         .analysis-panel {
             background: rgba(26, 31, 37, 0.8);
             border: 1px solid #3a3f45;
@@ -667,6 +584,145 @@
             20%, 40%, 60%, 80% { transform: translateX(10px); }
         }
         
+        /* 丹道授业小游戏样式 */
+        .teaching-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cauldron-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+        }
+        
+        .cauldron {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(145deg, #3a2e1a, #2d2415);
+            border-radius: 50% 50% 30% 30%;
+            position: relative;
+            border: 3px solid #d4af37;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .flame-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #ff6b6b, #ffd700);
+            border-radius: 50% 50% 0 0;
+            transition: height 0.5s ease;
+        }
+        
+        .status-indicators {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .indicator {
+            text-align: center;
+            padding: 10px;
+            background: rgba(40, 30, 15, 0.5);
+            border-radius: 10px;
+            border: 1px solid #3a3f45;
+            min-width: 120px;
+        }
+        
+        .indicator-value {
+            font-size: 1.3rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .instruction {
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin: 15px 0;
+            text-align: center;
+            min-height: 60px;
+            padding: 10px;
+            background: rgba(40, 30, 15, 0.3);
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .warning {
+            background: rgba(140, 42, 42, 0.5);
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        }
+        
+        .teaching-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 10px;
+        }
+        
+        .teaching-btn {
+            padding: 12px;
+            border-radius: 8px;
+            background: linear-gradient(145deg, #2c313a, #232830);
+            border: 1px solid #3a3f45;
+            color: #b8b0a0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .teaching-btn:hover {
+            background: linear-gradient(145deg, #3a2e1a, #2d2415);
+            border-color: #d4af37;
+            color: #ffd700;
+        }
+        
+        .teaching-btn i {
+            font-size: 1.5rem;
+        }
+        
+        .formula-error {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            animation: floatUp 3s forwards;
+        }
+        
+        @keyframes floatUp {
+            0% { opacity: 1; top: -30px; }
+            70% { opacity: 1; top: -60px; }
+            100% { opacity: 0; top: -80px; }
+        }
+        
         @media (max-width: 768px) {
             .alchemist-types {
                 grid-template-columns: 1fr;
@@ -697,6 +753,15 @@
                 width: 60px;
                 height: 60px;
                 font-size: 1.2rem;
+            }
+            
+            .teaching-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-indicators {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -823,37 +888,48 @@
             
             <!-- 主动流程小游戏：丹道授业 -->
             <div class="minigame-container" id="teaching-minigame">
-                <h3 class="minigame-title">丹道授业</h3>
-                <p>指导王铁柱控制丹炉火候，在30秒内保持稳定</p>
+                <h3 class="minigame-title">丹道授业 · 炉火法诀双修</h3>
+                <p>指导王铁柱控制丹炉火候与法诀，在30秒内保持稳定</p>
                 <div class="timer">剩余时间: <span id="teaching-time">30</span>秒</div>
                 
                 <div class="teaching-game">
-                    <div class="cauldron">
-                        <div class="flame-indicator" id="flame-level"></div>
+                    <div class="cauldron-container">
+                        <div class="cauldron">
+                            <div class="flame-indicator" id="flame-level"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-indicators">
+                        <div class="indicator">
+                            <div>炉火强度</div>
+                            <div class="indicator-value" id="flame-value">60%</div>
+                        </div>
+                        <div class="indicator">
+                            <div>丹炉稳定</div>
+                            <div class="indicator-value" id="stability-value">70%</div>
+                        </div>
                     </div>
                     
                     <div class="instruction" id="instruction">
-                        丹火过旺，请降低火势！
-                    </div>
-                    
-                    <div class="status-bar">
-                        <div class="stability-fill" id="stability-bar"></div>
-                    </div>
-                    <div class="stability-labels">
-                        <span>危险</span>
-                        <span>稳定</span>
-                        <span>完美</span>
+                        请指导王铁柱控制丹炉状态...
                     </div>
                     
                     <div class="teaching-controls">
                         <button class="teaching-btn" id="increase-btn">
-                            <i class="fas fa-arrow-up"></i> 增强火力
+                            <i class="fas fa-arrow-up"></i>
+                            <span>提升丹火</span>
                         </button>
                         <button class="teaching-btn" id="decrease-btn">
-                            <i class="fas fa-arrow-down"></i> 减弱火力
+                            <i class="fas fa-arrow-down"></i>
+                            <span>减弱丹火</span>
                         </button>
                         <button class="teaching-btn" id="stabilize-btn">
-                            <i class="fas fa-balance-scale"></i> 稳定丹炉
+                            <i class="fas fa-balance-scale"></i>
+                            <span>稳定丹炉</span>
+                        </button>
+                        <button class="teaching-btn" id="adjust-formula-btn">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <span>调整法诀</span>
                         </button>
                     </div>
                 </div>
@@ -1032,7 +1108,7 @@
                     } 
                     else if(action === 'teach') {
                         // 重置教学小游戏
-                        resetTeachingGame();
+                        initTeachingGame();
                         document.getElementById('teaching-minigame').style.display = 'block';
                         startTeachingGame();
                     }
@@ -1084,8 +1160,8 @@
                                 </div> 
                             `;
                             actions = `
-                                <button class="action-btn primary-btn" onclick="closeResult()">悄悄离开</button>
-                                <button class="action-btn secondary-btn" onclick="helpVictim()">救助伤者</button>
+                                <button class="action-btn primary-btn" onclick="compensateDamage()">赔偿损失</button>
+                                <button class="action-btn secondary-btn" onclick="escapeScene()">趁机逃跑</button>
                             `;
                         } 
                         // 主动流程选项
@@ -1176,9 +1252,12 @@
             let rewards = '';
             let actions = '';
             
+            // 随机决定结果类型：1=失败, 2=成功, 3=搞笑
+            const resultType = Math.floor(Math.random() * 3) + 1;
+            
             switch(option) {
                 case 1: // 直接搬走
-                    if(Math.random() > 0.7) {
+                    if(resultType === 1) { // 失败
                         resultText = '你试图直接搬走火纹玄铁，但这块玄铁比想象中沉重得多！"哐当"一声巨响，玄铁落地惊动了所有人。王铁柱转身看到这一幕，眼中充满失望："道友竟行此苟且之事？"';
                         rewards = `
                             <div class="reward-item">
@@ -1191,7 +1270,7 @@
                             </div>
                         `;
                         actions = '<button class="action-btn primary-btn" onclick="closeResult()">尴尬离开</button>';
-                    } else {
+                    } else if(resultType === 2) { // 成功
                         resultText = '你咬紧牙关，用尽全身灵力搬起了沉重的火纹玄铁，趁着混乱溜出了炼丹房。这块玄铁足够打造三件上品法器！';
                         rewards = `
                             <div class="reward-item">
@@ -1204,24 +1283,24 @@
                             </div>
                         `;
                         actions = '<button class="action-btn primary-btn" onclick="closeResult()">迅速离开</button>';
+                    } else { // 搞笑
+                        resultText = '你使出吃奶的力气搬起玄铁，却发现这只是块涂了色的普通石头！"哈哈哈！"王铁柱忍俊不禁："道友真幽默，这是老夫用来练习刻符的废料！"';
+                        rewards = `
+                            <div class="reward-item">
+                                <div>涂色石头</div>
+                                <div class="reward-value">x1</div>
+                            </div>
+                            <div class="reward-item">
+                                <div>尴尬值</div>
+                                <div class="reward-value">+100</div>
+                            </div>
+                        `;
+                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">捂脸离开</button>';
                     }
                     break;
                     
                 case 2: // 快速顺走
-                    if(Math.random() > 0.4) {
-                        resultText = '你施展轻身术，如鬼魅般闪过，瞬间将火纹玄铁收入储物袋。王铁柱毫无察觉，仍在清理残局。';
-                        rewards = `
-                            <div class="reward-item">
-                                <div>火纹玄铁</div>
-                                <div class="reward-value">x1</div>
-                            </div>
-                            <div class="reward-item">
-                                <div>敏捷</div>
-                                <div class="reward-value">+5</div>
-                            </div>
-                        `;
-                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">满意离开</button>';
-                    } else {
+                    if(resultType === 1) { // 失败
                         resultText = '就在你即将得手时，一位路过的长老突然出现："小贼安敢！"一道金光将你定在原地。王铁柱见状痛心疾首："我视你为同道，你却..."';
                         rewards = `
                             <div class="reward-item">
@@ -1234,24 +1313,37 @@
                             </div>
                         `;
                         actions = '<button class="action-btn primary-btn" onclick="plead()">跪地求饶</button>';
-                    }
-                    break;
-                    
-                case 3: // 声东击西
-                    if(Math.random() > 0.5) {
-                        resultText = '你弹出一道灵力击中远处丹炉，引发小规模爆炸。趁众人分神之际，你轻松取走火纹玄铁，神不知鬼不觉。';
+                    } else if(resultType === 2) { // 成功
+                        resultText = '你施展轻身术，如鬼魅般闪过，瞬间将火纹玄铁收入储物袋。王铁柱毫无察觉，仍在清理残局。';
                         rewards = `
                             <div class="reward-item">
                                 <div>火纹玄铁</div>
                                 <div class="reward-value">x1</div>
                             </div>
                             <div class="reward-item">
-                                <div>谋略</div>
-                                <div class="reward-value">+10</div>
+                                <div>敏捷</div>
+                                <div class="reward-value">+5</div>
                             </div>
                         `;
-                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">从容离开</button>';
-                    } else {
+                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">满意离开</button>';
+                    } else { // 搞笑
+                        resultText = '你快速抓起玄铁塞进怀里，却发现王铁柱正盯着你："道友...那是我的午饭饭盒..."你尴尬地掏出一个冒着热气的饭盒。';
+                        rewards = `
+                            <div class="reward-item">
+                                <div>红烧肉饭</div>
+                                <div class="reward-value">x1</div>
+                            </div>
+                            <div class="reward-item">
+                                <div>尴尬值</div>
+                                <div class="reward-value">+50</div>
+                            </div>
+                        `;
+                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">放下饭盒逃跑</button>';
+                    }
+                    break;
+                    
+                case 3: // 声东击西
+                    if(resultType === 1) { // 失败
                         resultText = '你制造混乱的计策被识破，执法弟子将你当场擒获。王铁柱摇头叹息："为了一块玄铁，值得吗？"';
                         rewards = `
                             <div class="reward-item">
@@ -1267,6 +1359,32 @@
                             <button class="action-btn primary-btn" onclick="offerRecipe()">献出丹方赎罪</button>
                             <button class="action-btn tertiary-btn" onclick="resistArrest()">武力反抗</button>
                         `;
+                    } else if(resultType === 2) { // 成功
+                        resultText = '你弹出一道灵力击中远处丹炉，引发小规模爆炸。趁众人分神之际，你轻松取走火纹玄铁，神不知鬼不觉。';
+                        rewards = `
+                            <div class="reward-item">
+                                <div>火纹玄铁</div>
+                                <div class="reward-value">x1</div>
+                            </div>
+                            <div class="reward-item">
+                                <div>谋略</div>
+                                <div class="reward-value">+10</div>
+                            </div>
+                        `;
+                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">从容离开</button>';
+                    } else { // 搞笑
+                        resultText = '你制造爆炸声后迅速冲向玄铁，却发现王铁柱正举着玄铁："道友小心！"原来爆炸震落了房梁，他是在救你！玄铁上还刻着"赠道友留念"。';
+                        rewards = `
+                            <div class="reward-item">
+                                <div>火纹玄铁</div>
+                                <div class="reward-value">x1</div>
+                            </div>
+                            <div class="reward-item">
+                                <div>愧疚值</div>
+                                <div class="reward-value">+100</div>
+                            </div>
+                        `;
+                        actions = '<button class="action-btn primary-btn" onclick="closeResult()">惭愧离开</button>';
                     }
                     break;
             }
@@ -1346,8 +1464,8 @@
                             </div>
                         `;
                         actions = `
-                            <button class="action-btn primary-btn" onclick="compensate()">赔偿损失</button>
-                            <button class="action-btn secondary-btn" onclick="escape()">趁机逃跑</button>
+                            <button class="action-btn primary-btn" onclick="compensateDamage()">赔偿损失</button>
+                            <button class="action-btn secondary-btn" onclick="escapeScene()">趁机逃跑</button>
                         `;
                         
                         // 添加失败特效
@@ -1392,7 +1510,7 @@
                     `;
                     const actions = `
                         <button class="action-btn primary-btn" onclick="helpVictim()">照料伤者</button>
-                        <button class="action-btn secondary-btn" onclick="escape()">逃离现场</button>
+                        <button class="action-btn secondary-btn" onclick="escapeScene()">逃离现场</button>
                     `;
                     
                     showResultPanel(resultText, rewards, actions);
@@ -1401,35 +1519,64 @@
             }, 1000);
         }
         
-        // 主动流程小游戏逻辑
+        // 丹道授业小游戏逻辑
         let teachingTimer;
         let teachingTimeLeft = 30;
         let flameLevel = 60;
         let stability = 70;
         let mistakes = 0;
-        let instructionInterval;
-        let lastInstruction = '';
+        let formulaErrors = 0;
+        let normalTime = 0;
+        let currentProblem = null;
+        let problemTimer;
+        let problemsSolved = 0;
+        let problemsMissed = 0;
         
-        // 重置教学小游戏
-        function resetTeachingGame() {
+        // DOM元素
+        const instructionElement = document.getElementById('instruction');
+        const flameElement = document.getElementById('flame-level');
+        const flameValueElement = document.getElementById('flame-value');
+        const stabilityValueElement = document.getElementById('stability-value');
+        const timeElement = document.getElementById('teaching-time');
+        
+        // 问题类型
+        const PROBLEM_TYPES = {
+            LOW_TEMP: '炉温过低',
+            HIGH_TEMP: '炉温过高',
+            UNSTABLE: '炉压不稳',
+            FORMULA: '法诀不对'
+        };
+        
+        // 初始化教学小游戏
+        function initTeachingGame() {
             flameLevel = 60;
             stability = 70;
             mistakes = 0;
+            formulaErrors = 0;
+            normalTime = 0;
+            problemsSolved = 0;
+            problemsMissed = 0;
             teachingTimeLeft = 30;
-            document.getElementById('teaching-time').textContent = teachingTimeLeft;
-            updateFlameIndicator();
-            updateStabilityBar();
-            clearInterval(instructionInterval);
+            currentProblem = null;
             
-            // 开始随机生成指令
-            instructionInterval = setInterval(generateInstruction, 4000);
-            generateInstruction();
+            updateUI();
+            instructionElement.textContent = "请指导王铁柱控制丹炉状态...";
+            instructionElement.classList.remove('warning');
+            
+            clearInterval(teachingTimer);
+            clearTimeout(problemTimer);
+            document.getElementById('result-panel').style.display = 'none';
         }
         
-        // 更新火焰指示器
-        function updateFlameIndicator() {
-            const flameElement = document.getElementById('flame-level');
+        // 更新UI
+        function updateUI() {
+            // 更新火焰指示器
             flameElement.style.height = `${flameLevel}%`;
+            
+            // 更新数值显示
+            flameValueElement.textContent = `${flameLevel}%`;
+            stabilityValueElement.textContent = `${stability}%`;
+            timeElement.textContent = teachingTimeLeft;
             
             // 根据火焰级别改变颜色
             if(flameLevel > 80) {
@@ -1441,136 +1588,335 @@
             } else {
                 flameElement.style.background = 'linear-gradient(to top, #4caf50, #2196f3)';
             }
+            
+            // 更新稳定度文本颜色
+            if(stability > 70) {
+                stabilityValueElement.style.color = '#4caf50';
+            } else if(stability > 50) {
+                stabilityValueElement.style.color = '#ffd700';
+            } else {
+                stabilityValueElement.style.color = '#ff6b6b';
+            }
         }
         
-        // 更新稳定性条
-        function updateStabilityBar() {
-            const stabilityBar = document.getElementById('stability-bar');
-            stabilityBar.style.width = `${stability}%`;
+        // 生成随机问题
+        function generateProblem() {
+            if (currentProblem) return; // 如果已有问题未解决，不再生成新问题
+            
+            const problemKeys = Object.keys(PROBLEM_TYPES);
+            const randomKey = problemKeys[Math.floor(Math.random() * problemKeys.length)];
+            currentProblem = PROBLEM_TYPES[randomKey];
+            
+            instructionElement.textContent = `警告：${currentProblem}！请及时处理！`;
+            instructionElement.classList.add('warning');
+            
+            // 设置问题超时（3秒）
+            problemTimer = setTimeout(() => {
+                problemsMissed++;
+                instructionElement.textContent = "未能及时处理问题！情况恶化！";
+                
+                // 根据问题类型恶化情况
+                if (currentProblem === PROBLEM_TYPES.LOW_TEMP) {
+                    flameLevel = Math.max(10, flameLevel - 15);
+                } else if (currentProblem === PROBLEM_TYPES.HIGH_TEMP) {
+                    flameLevel = Math.min(100, flameLevel + 15);
+                } else if (currentProblem === PROBLEM_TYPES.UNSTABLE) {
+                    stability = Math.max(0, stability - 15);
+                } else if (currentProblem === PROBLEM_TYPES.FORMULA) {
+                    stability = Math.max(0, stability - 10);
+                    flameLevel += Math.random() * 20 - 10;
+                }
+                
+                updateUI();
+                
+                // 3秒后清除警告并生成新问题
+                setTimeout(() => {
+                    instructionElement.classList.remove('warning');
+                    currentProblem = null;
+                    generateProblem(); // 生成新问题
+                }, 3000);
+            }, 3000);
         }
         
-        // 生成随机指令
-        function generateInstruction() {
-            const instructions = [
-                "丹火过旺，请降低火势！",
-                "火力不足，请增强火势！",
-                "丹炉震动，请稳定丹炉！",
-                "药香外泄，请加强密封！",
-                "灵气紊乱，请调整法诀！"
-            ];
+        // 解决问题
+        function solveProblem() {
+            if (!currentProblem) return false;
             
-            let newInstruction;
-            do {
-                newInstruction = instructions[Math.floor(Math.random() * instructions.length)];
-            } while (newInstruction === lastInstruction);
+            clearTimeout(problemTimer);
+            problemsSolved++;
+            instructionElement.textContent = "问题已解决！继续炼丹...";
+            instructionElement.classList.remove('warning');
             
-            lastInstruction = newInstruction;
-            document.getElementById('instruction').textContent = newInstruction;
+            // 根据问题类型给予奖励
+            if (currentProblem === PROBLEM_TYPES.LOW_TEMP) {
+                stability = Math.min(100, stability + 5);
+            } else if (currentProblem === PROBLEM_TYPES.HIGH_TEMP) {
+                stability = Math.min(100, stability + 5);
+            } else if (currentProblem === PROBLEM_TYPES.UNSTABLE) {
+                flameLevel = Math.min(100, Math.max(10, flameLevel - 5));
+            } else if (currentProblem === PROBLEM_TYPES.FORMULA) {
+                stability = Math.min(100, stability + 10);
+            }
+            
+            updateUI();
+            
+            // 3秒后生成新问题
+            setTimeout(() => {
+                currentProblem = null;
+                generateProblem();
+            }, 3000);
+            
+            return true;
+        }
+        
+        // 开始教学小游戏
+        function startTeachingGame() {
+            teachingTimer = setInterval(() => {
+                teachingTimeLeft--;
+                timeElement.textContent = teachingTimeLeft;
+                
+                // 自然变化
+                flameLevel += (Math.random() * 4 - 2);
+                stability += (Math.random() * 3 - 1.5);
+                
+                // 确保值在范围内
+                flameLevel = Math.max(10, Math.min(100, flameLevel));
+                stability = Math.max(0, Math.min(100, stability));
+                
+                // 记录正常状态时间
+                if (flameLevel >= 40 && flameLevel <= 80 && stability >= 60) {
+                    normalTime++;
+                }
+                
+                // 每3-5秒生成一个问题
+                if (!currentProblem && Math.random() < 0.3) {
+                    generateProblem();
+                }
+                
+                updateUI();
+                
+                if(teachingTimeLeft <= 0) {
+                    clearInterval(teachingTimer);
+                    clearTimeout(problemTimer);
+                    endTeachingGame();
+                }
+            }, 1000);
         }
         
         // 结束教学小游戏
         function endTeachingGame() {
+            const successRate = Math.round((problemsSolved / (problemsSolved + problemsMissed)) * 100) || 0;
             let resultText = '';
             let rewards = '';
             let actions = '';
-            let showAnalysis = false;
             
-            if(stability >= 80 && mistakes <= 2) {
-                resultText = '在你的悉心指导下，王铁柱成功炼制出一炉上品聚气丹！他激动得热泪盈眶："今日方知丹道真谛！"为表感谢，他不仅与你分享丹药，还赠送了一张珍藏的古丹方。';
+            if(successRate >= 80) {
+                // 大成功
+                resultText = '在你的悉心指导下，王铁柱成功炼制出一炉极品聚气丹！丹药散发出七彩霞光，引动天地异象！王铁柱激动得热泪盈眶："今日方知丹道真谛！"';
                 rewards = ` 
                     <div class="reward-item"> 
+                        <div>极品聚气丹</div> 
+                        <div class="reward-value">x3</div> 
+                    </div> 
+                    <div class="reward-item"> 
                         <div>上品聚气丹</div> 
-                        <div class="reward-value">x8</div> 
+                        <div class="reward-value">x6</div> 
                     </div> 
                     <div class="reward-item"> 
                         <div>古丹方</div> 
                         <div class="reward-value">x1</div> 
                     </div> 
                     <div class="reward-item"> 
-                        <div>好感度</div> 
-                        <div class="reward-value">+50</div> 
-                    </div> 
-                    <div class="reward-item"> 
                         <div>师道威望</div> 
-                        <div class="reward-value">+30</div> 
+                        <div class="reward-value">+50</div> 
                     </div> 
                 `;
                 actions = ` 
                     <button class="action-btn primary-btn" onclick="acceptReward()">接受谢礼</button> 
                     <button class="action-btn secondary-btn" onclick="offerJob()">邀请合作</button> 
                 `;
-            } else if(stability >= 60 && mistakes <= 4) {
-                resultText = '经过你的指导，王铁柱勉强完成了炼丹，但成丹率不高。他有些沮丧但仍感激："多谢道友指点，看来我还需勤加练习。"他送你几颗成丹作为谢礼。';
+                
+                // 添加成功特效
+                const effect = document.createElement('div');
+                effect.className = 'success-effect';
+                document.querySelector('.cauldron-container').appendChild(effect);
+                setTimeout(() => effect.remove(), 1500);
+            } 
+            else if(successRate >= 50) {
+                // 一般成功
+                resultText = '经过你的指导，王铁柱成功炼制出一炉上品聚气丹！丹药圆润饱满，散发着浓郁药香。他恭敬地向你行礼："多谢道友指点迷津！"';
                 rewards = `
+                    <div class="reward-item">
+                        <div>上品聚气丹</div>
+                        <div class="reward-value">x6</div>
+                    </div>
                     <div class="reward-item">
                         <div>中品聚气丹</div>
                         <div class="reward-value">x4</div>
                     </div>
                     <div class="reward-item">
                         <div>好感度</div>
-                        <div class="reward-value">+20</div>
+                        <div class="reward-value">+30</div>
                     </div>
                 `;
                 actions = `
                     <button class="action-btn primary-btn" onclick="acceptReward()">接受丹药</button>
                     <button class="action-btn secondary-btn" onclick="offerAdvice()">给予建议</button>
                 `;
-                showAnalysis = true;
-            } else {
-                resultText = '教学过程中多次失误，丹炉最终冒出黑烟，药材全部报废。王铁柱跪地泣血："我终究是废物..."他深受打击，三日内不愿见人。';
+            } 
+            else if(successRate >= 30) {
+                // 小小成功
+                resultText = '虽然过程有些波折，但王铁柱最终炼成了一炉中品聚气丹。他擦了擦额头的汗水："让道友见笑了，看来我还需勤加练习。"';
                 rewards = `
                     <div class="reward-item">
-                        <div>愧疚药渣</div>
-                        <div class="reward-value">x1</div>
+                        <div>中品聚气丹</div>
+                        <div class="reward-value">x4</div>
                     </div>
                     <div class="reward-item">
-                        <div>好感度</div>
-                        <div class="reward-value">-15</div>
+                        <div>炼丹经验</div>
+                        <div class="reward-value">+50</div>
                     </div>
                 `;
+                actions = `
+                    <button class="action-btn primary-btn" onclick="acceptReward()">接受丹药</button>
+                    <button class="action-btn secondary-btn" onclick="offerAdvice()">给予建议</button>
+                `;
+            }
+            else {
+                // 不成功结局
+                if (flameLevel > 80) {
+                    resultText = '炉温过高导致药材焚毁！丹炉内冒出滚滚黑烟，王铁柱一脸沮丧："都怪我未能及时控制火候..."';
+                    rewards = `
+                        <div class="reward-item">
+                            <div>药渣</div>
+                            <div class="reward-value">x5</div>
+                        </div>
+                        <div class="reward-item">
+                            <div>丹炉损伤</div>
+                            <div class="reward-value">-10%</div>
+                        </div>
+                    `;
+                } else if (flameLevel < 40) {
+                    resultText = '炉温过低导致药力无法融合！丹炉内凝结成一块块冰晶，王铁柱无奈摇头："火候控制还是太生疏了..."';
+                    rewards = `
+                        <div class="reward-item">
+                            <div>冰晶残渣</div>
+                            <div class="reward-value">x3</div>
+                        </div>
+                        <div class="reward-item">
+                            <div>灵力消耗</div>
+                            <div class="reward-value">-20%</div>
+                        </div>
+                    `;
+                } else if (stability < 40) {
+                    resultText = '炉压不稳导致丹炉剧烈震动！药材四处飞溅，王铁柱连忙后退："危险！快躲开！"';
+                    rewards = `
+                        <div class="reward-item">
+                            <div>伤势</div>
+                            <div class="reward-value">-15% HP</div>
+                        </div>
+                        <div class="reward-item">
+                            <div>药材损失</div>
+                            <div class="reward-value">-200灵石</div>
+                        </div>
+                    `;
+                } else {
+                    resultText = '法诀错误导致灵气紊乱！丹炉内发出刺耳的嗡鸣声，王铁柱抱头蹲下："我的头...好痛..."';
+                    rewards = `
+                        <div class="reward-item">
+                            <div>精神损伤</div>
+                            <div class="reward-value">-10%</div>
+                        </div>
+                        <div class="reward-item">
+                            <div>心魔</div>
+                            <div class="reward-value">+1</div>
+                        </div>
+                    `;
+                }
+                
                 actions = `
                     <button class="action-btn primary-btn" onclick="comfort()">安慰劝解</button>
                     <button class="action-btn secondary-btn" onclick="closeResult()">默默离开</button>
                 `;
-                showAnalysis = true;
             }
             
             showResultPanel(resultText, rewards, actions);
             document.getElementById('teaching-minigame').style.display = 'none';
-            
-            if(showAnalysis) {
-                generateAnalysisReport();
-                document.getElementById('analysis-panel').style.display = 'block';
-            }
         }
         
-        // 生成分析报告
-        function generateAnalysisReport() {
-            const analysisContent = document.getElementById('analysis-content');
-            let content = '';
-            
-            if(stability >= 60) {
-                content = `
-                    <div class="analysis-point">控火能力：良好</div>
-                    <div class="analysis-point">指导耐心：中等</div>
-                    <div class="analysis-point">王铁柱领悟：基础丹道</div>
-                    <div class="analysis-point">建议：多练习控火技巧，提高稳定性</div>
-                `;
-            } else {
-                content = `
-                    <div class="analysis-point">控火能力：较差</div>
-                    <div class="analysis-point">指导耐心：不足</div>
-                    <div class="analysis-point">王铁柱领悟：无</div>
-                    <div class="analysis-point">建议：先提升自身丹道修为再教学</div>
-                `;
+        // 按钮功能
+        document.getElementById('increase-btn').addEventListener('click', () => {
+            if (currentProblem === PROBLEM_TYPES.LOW_TEMP) {
+                solveProblem();
+            } else if (!currentProblem) {
+                flameLevel = Math.min(100, flameLevel + 10);
+                updateUI();
             }
-            
-            analysisContent.innerHTML = content;
-        }
+        });
+        
+        document.getElementById('decrease-btn').addEventListener('click', () => {
+            if (currentProblem === PROBLEM_TYPES.HIGH_TEMP) {
+                solveProblem();
+            } else if (!currentProblem) {
+                flameLevel = Math.max(10, flameLevel - 10);
+                updateUI();
+            }
+        });
+        
+        document.getElementById('stabilize-btn').addEventListener('click', () => {
+            if (currentProblem === PROBLEM_TYPES.UNSTABLE) {
+                solveProblem();
+            } else if (!currentProblem) {
+                stability = Math.min(100, stability + 10);
+                updateUI();
+            }
+        });
+        
+        document.getElementById('adjust-formula-btn').addEventListener('click', () => {
+            if (currentProblem === PROBLEM_TYPES.FORMULA) {
+                solveProblem();
+            } else if (!currentProblem) {
+                stability = Math.min(100, stability + 5);
+                flameLevel = Math.min(100, Math.max(10, flameLevel - 5));
+                updateUI();
+            }
+        });
         
         // 关闭结果面板
         function closeResult() {
             document.getElementById('result-panel').style.display = 'none';
+        }
+        
+        // 新增选项结果处理函数
+        function compensateDamage() {
+            showResultPanel('你主动赔偿了500灵石修复丹炉，王铁柱感激地说："多谢道友仁义！"三日后他登门道谢，并带来一份谢礼。', 
+                '<div class="reward-item"><div>灵石</div><div class="reward-value">-500</div></div>' +
+                '<div class="reward-item"><div>中品聚气丹</div><div class="reward-value">x3</div></div>', 
+                '<button class="action-btn primary-btn" onclick="closeResult()">接受谢礼</button>');
+        }
+        
+        function escapeScene() {
+            const caught = Math.random() > 0.5;
+            if (caught) {
+                showResultPanel('你试图逃离现场，却被执法弟子拦下："造成如此破坏还想逃跑？"王铁柱为你求情："长老息怒，这位道友也是无心之失..."', 
+                    '<div class="reward-item"><div>门派惩罚</div><div class="reward-value">-80</div></div>' +
+                    '<div class="reward-item"><div>禁闭</div><div class="reward-value">3日</div></div>', 
+                    '<button class="action-btn primary-btn" onclick="closeResult()">接受惩罚</button>');
+            } else {
+                showResultPanel('你趁乱逃离现场，但门派中已传开你的恶名："那个见死不救的炼丹师..."', 
+                    '<div class="reward-item"><div>门派声望</div><div class="reward-value">-50</div></div>' +
+                    '<div class="reward-item"><div>炼丹堂权限</div><div class="reward-value">-1级</div></div>', 
+                    '<button class="action-btn primary-btn" onclick="closeResult()">接受现实</button>');
+            }
+        }
+        
+        function escapeSect() {
+            showResultPanel('你施展遁术逃离宗门，却被护山大阵重伤。执法长老将你擒获："叛宗者，当受三刀六洞之刑！"你的名字被刻在宗门坏蛋丹师榜单上。', 
+                '<div class="reward-item"><div>伤势</div><div class="reward-value">-60% HP</div></div>' +
+                '<div class="reward-item"><div>通缉令</div><div class="reward-value">x1</div></div>' +
+                '<div class="reward-item"><div>恶名</div><div class="reward-value">+200</div></div>' +
+                '<div class="reward-item"><div>宗门坏蛋榜</div><div class="reward-value">第99名</div></div>', 
+                '<button class="action-btn primary-btn" onclick="closeResult()">接受命运</button>');
         }
         
         // 示例操作函数
@@ -1598,7 +1944,7 @@
 
         function startTeachingAfterChangeMind() {
             closeResult();
-            resetTeachingGame();
+            initTeachingGame();
             document.getElementById('teaching-minigame').style.display = 'block';
             startTeachingGame();
         }
@@ -1615,7 +1961,7 @@
             '<div class="reward-item"><div>门派惩罚</div><div class="reward-value">-100</div></div>'+
             '<div class="reward-item"><div>伤势</div><div class="reward-value">-25% HP</div></div>',
             '<button class="action-btn primary-btn" onclick="pleadGuilty()">认罪受罚</button>'+
-            '<button class="action-btn tertiary-btn" onclick="escapeSect()">叛逃宗门</button>');
+            '<button class="action-btn tertiary-btn" onclick="escapeSect()">尝试逃跑</button>');
         }
         
         function pleadGuilty() {
@@ -1625,17 +1971,10 @@
             '<button class="action-btn primary-btn" onclick="closeResult()">接受惩罚</button>');
         }
         
-        function escapeSect() {
-            showResultPanel('你施展遁术逃离宗门，身后传来执法长老的怒喝："叛徒休走！"从此你成为宗门通缉要犯，开始了逃亡生涯。',
-            '<div class="reward-item"><div>通缉令</div><div class="reward-value">x1</div></div>'+
-            '<div class="reward-item"><div>灵石</div><div class="reward-value">-1000</div></div>',
-            '<button class="action-btn primary-btn" onclick="closeResult()">继续逃亡</button>');
-        }
-        
         function resistArrest() {
-            showResultPanel('你祭出法宝反抗执法弟子："休想擒我！"双方战作一团，引来更多长老。最终你寡不敌众被擒，修为被废去大半。',
-            '<div class="reward-item"><div>修为</div><div class="reward-value">-70%</div></div>'+
-            '<div class="reward-item"><div>禁闭</div><div class="reward-value">100年</div></div>',
+            showResultPanel('你祭出法宝反抗执法弟子："休想擒我！"双方战作一团，引来更多长老。最终你寡不敌众被擒，被群殴。',
+            '<div class="reward-item"><div>修为</div><div class="reward-value">debuFF</div></div>'+
+            '<div class="reward-item"><div>禁闭</div><div class="reward-value">5min</div></div>',
             '<button class="action-btn primary-btn" onclick="closeResult()">接受命运</button>');
         }
         
@@ -1754,56 +2093,6 @@
         
         // 初始绑定
         bindOptionEvents();
-        
-        // 初始化教学按钮事件
-        document.getElementById('increase-btn').addEventListener('click', () => {
-            flameLevel = Math.min(100, flameLevel + 10);
-            updateFlameIndicator();
-        });
-        
-        document.getElementById('decrease-btn').addEventListener('click', () => {
-            flameLevel = Math.max(10, flameLevel - 10);
-            updateFlameIndicator();
-        });
-        
-        document.getElementById('stabilize-btn').addEventListener('click', () => {
-            // 稳定操作有概率成功
-            if(Math.random() > 0.3) {
-                stability = Math.min(100, stability + 5);
-                updateStabilityBar();
-            } else {
-                stability = Math.max(0, stability - 10);
-                updateStabilityBar();
-                mistakes++;
-            }
-        });
-        
-        // 开始教学小游戏
-        function startTeachingGame() {
-            resetTeachingGame();
-            clearInterval(teachingTimer);
-            
-            teachingTimer = setInterval(() => {
-                teachingTimeLeft--;
-                document.getElementById('teaching-time').textContent = teachingTimeLeft;
-                
-                // 自然稳定性变化
-                stability += (Math.random() * 6 - 3);
-                stability = Math.max(0, Math.min(100, stability));
-                updateStabilityBar();
-                
-                // 自然火焰变化
-                flameLevel += (Math.random() * 4 - 2);
-                flameLevel = Math.max(10, Math.min(100, flameLevel));
-                updateFlameIndicator();
-                
-                if(teachingTimeLeft <= 0) {
-                    clearInterval(teachingTimer);
-                    clearInterval(instructionInterval);
-                    endTeachingGame();
-                }
-            }, 1000);
-        }
     </script>
 </body>
 </html>
