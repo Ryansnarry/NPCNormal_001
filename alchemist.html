@@ -1140,7 +1140,7 @@
                             `;
                         } 
                         else if(action === 'sabotage') {
-                            resultText = '你暗中催动灵力扰乱炉火，丹炉瞬间爆炸！王铁柱身受重伤，本命法宝受损。爆炸的冲击波将你震飞，你失去了意识...醒来时发现储物袋中多了几块炸飞的丹药碎片。';
+                            resultText = '你暗中催动灵力扰乱炉火，丹炉瞬间爆炸！王铁柱被炸飞数丈远，衣衫破碎，口吐鲜血。本命法宝"玄铁丹炉"出现裂痕，灵气外泄。';
                             rewards = ` 
                                 <div class="reward-item"> 
                                     <div>丹药碎片</div> 
@@ -1161,7 +1161,8 @@
                             `;
                             actions = `
                                 <button class="action-btn primary-btn" onclick="compensateDamage()">赔偿损失</button>
-                                <button class="action-btn secondary-btn" onclick="escapeScene()">趁机逃跑</button>
+                                <button class="action-btn secondary-btn" onclick="healAlchemist()">救治丹师</button>
+                                <button class="action-btn tertiary-btn" onclick="escapeScene()">趁机逃跑</button>
                             `;
                         } 
                         // 主动流程选项
@@ -1465,7 +1466,8 @@
                         `;
                         actions = `
                             <button class="action-btn primary-btn" onclick="compensateDamage()">赔偿损失</button>
-                            <button class="action-btn secondary-btn" onclick="escapeScene()">趁机逃跑</button>
+                            <button class="action-btn primary-btn" onclick="healAlchemist()">救治丹师</button>
+                            <button class="action-btn third-btn" onclick="escapeScene()">趁机逃跑</button>
                         `;
                         
                         // 添加失败特效
@@ -1500,8 +1502,8 @@
                             <div class="reward-value">-10% HP</div>
                         </div>
                         <div class="reward-item">
-                            <div>门派惩罚</div>
-                            <div class="reward-value">-50</div>
+                            <div>印象</div>
+                            <div class="reward-value">破铜烂铁</div>
                         </div>
                         <div class="reward-item">
                             <div>心魔</div>
@@ -1889,10 +1891,31 @@
         
         // 新增选项结果处理函数
         function compensateDamage() {
-            showResultPanel('你主动赔偿了500灵石修复丹炉，王铁柱感激地说："多谢道友仁义！"三日后他登门道谢，并带来一份谢礼。', 
+            const success = Math.random() > 0.3;
+            let resultText = '';
+            let rewards = '';
+            let actions = '';
+
+            if (success) {
+                resultText = '你主动赔偿了500灵石修复丹炉，王铁柱心情复杂...他接受了你的赔偿，但是不发一言';
+                rewards = '<div class="reward-item"><div>灵石</div><div class="reward-value">-500</div></div>' +
+                '<div class="reward-item"><div>印象</div><div class="reward-value">[怪人]</div></div>';
+                actions = '<button class="action-btn primary-btn" onclick="closeResult()">无奈收下</button>';
+            } else {
+                resultText = '你取出300灵石："此乃赔偿..."话未说完，王铁柱怒目而视："区区灵石就想打发我？我这玄铁丹炉乃是祖传法宝！"他捏碎传讯玉符，闻讯赶来。"';
+                rewards = '<div class="reward-item"><div>灵石</div><div class="reward-value">-500</div></div>' +
+                '<div class="reward-item"><div>投诉</div><div class="reward-value">群体印象变差</div></div>';
+                actions = '<button class="action-btn primary-btn" onclick="closeResult()">无奈接受（有社群影响）</button>';
+            }
+            
+            showResultPanel(resultText, rewards, actions);
+        }
+
+        function healAlchemist() {
+            showResultPanel('你主动消耗丹药救醒了王铁柱，他悠悠醒来并断断续续地说："多谢道友仁义！"三日后他会登门道谢，并带来一份谢礼。', 
                 '<div class="reward-item"><div>灵石</div><div class="reward-value">-500</div></div>' +
                 '<div class="reward-item"><div>中品聚气丹</div><div class="reward-value">x3</div></div>', 
-                '<button class="action-btn primary-btn" onclick="closeResult()">接受谢礼</button>');
+                '<button class="action-btn primary-btn" onclick="closeResult()">接受谢礼（其他任务链）</button>');
         }
         
         function escapeScene() {
@@ -1905,13 +1928,14 @@
             } else {
                 showResultPanel('你趁乱逃离现场，但门派中已传开你的恶名："那个见死不救的炼丹师..."', 
                     '<div class="reward-item"><div>门派声望</div><div class="reward-value">-50</div></div>' +
-                    '<div class="reward-item"><div>炼丹堂权限</div><div class="reward-value">-1级</div></div>', 
+                    '<div class="reward-item"><div>群体印象</div><div class="reward-value">[逃跑小人]</div></div>' +
+                    '<div class="reward-item"><div>炼丹堂权限</div><div class="reward-value">禁入3天</div></div>', 
                     '<button class="action-btn primary-btn" onclick="closeResult()">接受现实</button>');
             }
         }
         
         function escapeSect() {
-            showResultPanel('你施展遁术逃离宗门，却被护山大阵重伤。执法长老将你擒获："叛宗者，当受三刀六洞之刑！"你的名字被刻在宗门坏蛋丹师榜单上。', 
+            showResultPanel('你施展遁术逃离现场，但名字被刻在宗门坏蛋丹师榜单上，被人讨论了很久···（NPC会把你当八卦聊，走近也会指指点点）', 
                 '<div class="reward-item"><div>伤势</div><div class="reward-value">-60% HP</div></div>' +
                 '<div class="reward-item"><div>通缉令</div><div class="reward-value">x1</div></div>' +
                 '<div class="reward-item"><div>恶名</div><div class="reward-value">+200</div></div>' +
